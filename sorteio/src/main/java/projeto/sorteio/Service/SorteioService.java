@@ -19,13 +19,11 @@ public class SorteioService {
     public Sorteio sortear() {
         StringBuilder numeroSorteado = new StringBuilder(5);
 
-        // Preenche o StringBuilder com os números sorteados, de trás para frente
         for (int i = 4; i >= 0; i--) {
             int numero = secureRandom.nextInt(7) + 1;
             numeroSorteado.append(numero);
         }
 
-        // Inverte a string antes de atribuir ao sorteio
         Sorteio sorteio = new Sorteio();
         sorteio.setNumeroSorteado(numeroSorteado.toString());
         return sorteioRepository.save(sorteio);
